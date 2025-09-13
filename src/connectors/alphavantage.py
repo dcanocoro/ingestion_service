@@ -91,7 +91,7 @@ class AlphavantageDailyPriceConnector(BaseAPIConnector):
     def __init__(self):
         logger.info("Initializing AlphavantageDailyPriceConnector")
 
-    async def fetch(self, symbol: str, output_size: str = "compact") -> Dict[str, Any]:
+    async def fetch(self, symbol: str, output_size: str = "full") -> Dict[str, Any]:
         logger.info(f"Fetching daily price data from Alphavantage for symbol: {symbol} (output_size: {output_size})")
         
         params = {

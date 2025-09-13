@@ -13,7 +13,6 @@ class DailyPrice(Base):
     low_price     = Column(Numeric)
     close_price   = Column(Numeric)
     volume        = Column(Integer)
-
     created_at = Column(Date, default=datetime.utcnow)
 
     __table_args__ = (

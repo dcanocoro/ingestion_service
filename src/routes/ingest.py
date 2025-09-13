@@ -28,3 +28,13 @@ async def ingest_daily(symbol: str):
         logger.error(f"Failed to ingest daily prices for {symbol}: {str(exc)}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(exc))
 
+@router.post("/ingest/income/{symbol}", response_model=dict)
+async def ingest_income_statement(symbol: str):
+    logger.info(f"Received income statement ingestion request for symbol: {symbol}")
+    try:
+        count = await service.ingest_income_statement(symbol)
+        logger.info(f"Successfully completed income statement ingestion for {symbol} - returned {count} records")
+        return {"inserted": count}
+    except Exception as exc:
+        logger.error(f"Failed to ingest income statement for {symbol}: {str(exc)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(exc))

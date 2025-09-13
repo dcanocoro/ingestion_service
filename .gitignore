@@ -1,0 +1,16 @@
+.env
+.env.example
+
+.venv
+.venv\
+\.venv
+venv
+venv\
+Lib
+Scripts
+Include
+*.pyc
+log.db
+
+.loglog
+.db
